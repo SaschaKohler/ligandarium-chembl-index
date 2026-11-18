@@ -11,7 +11,7 @@ Ein kleiner, abgeleiteter Auszug aus der [ChEMBL-Datenbank](https://www.ebi.ac.u
 | Feld | Bedeutung | Herkunft |
 |---|---|---|
 | `chembl`, `name`, `organism` | ChEMBL-Target-ID, bevorzugter Name, Organismus | ChEMBL |
-| `label` | Anzeigename (deutsch bei den 15 Lehrzielen, sonst ChEMBL-Name) | eigene Ergänzung |
+| `label` | deutscher Anzeigename | eigene Ergänzung |
 | `pdb` | PDB-Beispielstrukturen, die in der App verwendet werden | eigene Ergänzung |
 | `ligands[].chembl`, `name`, `phase`, `smiles` | Molekül-ID, Name, höchste klinische Phase, SMILES | ChEMBL |
 | `ligands[].type`, `pchembl`, `nM`, `n` | Messart (Ki/Kd/IC50/EC50), Median-pChEMBL, Median in nM, Anzahl der Messungen | ChEMBL, **berechnet** |
@@ -22,7 +22,7 @@ Das Feld `source` der Datei nennt Quelle und Lizenz.
 
 ## Was wurde gegenüber ChEMBL verändert?
 
-- Auswahl von 26 Zielproteinen (845 Einträge, 584 verschiedene Moleküle): 15 Lehrziele plus 11 menschliche Einzelproteine, an denen laut ChEMBL-Mechanismus mindestens 3 Wirkstoffe der App-Bibliothek angreifen; alle übrigen ChEMBL-Daten fehlen. Bei den automatisch ergänzten Zielen ist `label` der ChEMBL-Name.
+- Auswahl von 26 Zielproteinen (845 Einträge, 584 verschiedene Moleküle): 15 Lehrziele plus 11 menschliche Einzelproteine, an denen laut ChEMBL-Mechanismus mindestens 3 Wirkstoffe der App-Bibliothek angreifen; alle übrigen ChEMBL-Daten fehlen.
 - Je Molekül und Ziel wurde der **Median** des pChEMBL-Werts über alle Messungen gebildet (nur Ki, Kd, IC50, EC50 mit Relation „=“). Das ist keine Originalmessung.
 - Je Ziel stehen zuerst alle Wirkstoffe der App-Bibliothek mit Messwerten, dann die potentesten weiteren zugelassenen Wirkstoffe (bis 25 zugelassene/Bibliotheks-Liganden) und die zehn potentesten Forschungsliganden.
 - Deutsche Anzeigenamen und PDB-Verweise wurden ergänzt.
