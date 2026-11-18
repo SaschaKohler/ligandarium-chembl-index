@@ -1,8 +1,8 @@
 # Ligandarium ChEMBL Target Index
 
-Ein kleiner, abgeleiteter Auszug aus der [ChEMBL-Datenbank](https://www.ebi.ac.uk/chembl/) (Version 37): für 15 Zielproteine die bekannten Liganden mit Affinitätswerten. Die Datei wird von der Lern-App *Ligandarium* (Pharmazie und Biochemie, macOS) mitgeliefert und hier offen veröffentlicht.
+Ein kleiner, abgeleiteter Auszug aus der [ChEMBL-Datenbank](https://www.ebi.ac.uk/chembl/) (Version 37): für 26 Zielproteine die bekannten Liganden mit Affinitätswerten. Die Datei wird von der Lern-App *Ligandarium* (Pharmazie und Biochemie, macOS) mitgeliefert und hier offen veröffentlicht.
 
-*A small derived extract of ChEMBL 37: known ligands and affinities for 15 target proteins, used by the macOS teaching app Ligandarium and published here openly.*
+*A small derived extract of ChEMBL 37: known ligands and affinities for 26 target proteins, used by the macOS teaching app Ligandarium and published here openly.*
 
 ## Inhalt
 
@@ -11,19 +11,20 @@ Ein kleiner, abgeleiteter Auszug aus der [ChEMBL-Datenbank](https://www.ebi.ac.u
 | Feld | Bedeutung | Herkunft |
 |---|---|---|
 | `chembl`, `name`, `organism` | ChEMBL-Target-ID, bevorzugter Name, Organismus | ChEMBL |
-| `label` | deutscher Anzeigename | eigene Ergänzung |
+| `label` | Anzeigename (deutsch bei den 15 Lehrzielen, sonst ChEMBL-Name) | eigene Ergänzung |
 | `pdb` | PDB-Beispielstrukturen, die in der App verwendet werden | eigene Ergänzung |
 | `ligands[].chembl`, `name`, `phase`, `smiles` | Molekül-ID, Name, höchste klinische Phase, SMILES | ChEMBL |
 | `ligands[].type`, `pchembl`, `nM`, `n` | Messart (Ki/Kd/IC50/EC50), Median-pChEMBL, Median in nM, Anzahl der Messungen | ChEMBL, **berechnet** |
+| `libraryIDs` (Dateikopf) | ChEMBL-IDs der Bibliothekswirkstoffe der App, nach denen ausgewählt wurde | eigene Ergänzung |
 | `measured` | Anzahl der Messwerte, aus denen die Ligandenwerte des Ziels stammen | ChEMBL, berechnet |
 
 Das Feld `source` der Datei nennt Quelle und Lizenz.
 
 ## Was wurde gegenüber ChEMBL verändert?
 
-- Auswahl von 15 Zielproteinen (insgesamt 490 Liganden); alle übrigen ChEMBL-Daten fehlen.
+- Auswahl von 26 Zielproteinen (845 Einträge, 584 verschiedene Moleküle): 15 Lehrziele plus 11 menschliche Einzelproteine, an denen laut ChEMBL-Mechanismus mindestens 3 Wirkstoffe der App-Bibliothek angreifen; alle übrigen ChEMBL-Daten fehlen. Bei den automatisch ergänzten Zielen ist `label` der ChEMBL-Name.
 - Je Molekül und Ziel wurde der **Median** des pChEMBL-Werts über alle Messungen gebildet (nur Ki, Kd, IC50, EC50 mit Relation „=“). Das ist keine Originalmessung.
-- Je Ziel sind zugelassene Wirkstoffe sowie die potentesten weiteren Liganden aufgenommen.
+- Je Ziel stehen zuerst alle Wirkstoffe der App-Bibliothek mit Messwerten, dann die potentesten weiteren zugelassenen Wirkstoffe (bis 25 zugelassene/Bibliotheks-Liganden) und die zehn potentesten Forschungsliganden.
 - Deutsche Anzeigenamen und PDB-Verweise wurden ergänzt.
 
 Die Werte sind Näherungen für die Lehre, nicht klinisch validiert und keine Wirkungsaussage.
